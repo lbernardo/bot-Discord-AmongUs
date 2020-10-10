@@ -13,16 +13,16 @@ client.on('message', msg => {
   }
   
   if (msg.content === config.mute) {
-    msg.guild.members.cache.map(member => {
+    msg.channel.send(config.messageMute);
+    msg.guild.channmembers.cache.map(member => {
       console.log(`Mute ${member.user.username}`);
-      msg.channel.send(config.messageMute,{reply: member});
       new VoiceController(Discord, msg.guild, member).muteAll();
     });
   }
   if (msg.content === config.unmute) {
+    msg.channel.send(config.messageUnmute);
     msg.guild.members.cache.map(member => {
       console.log(`Unmute ${member.user.username}`);
-      msg.channel.send(config.messageUnmute,{reply: member});
       new VoiceController(Discord, msg.guild, member).unmuteAll();
     });
   }
