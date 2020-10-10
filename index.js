@@ -11,18 +11,21 @@ client.on('message', msg => {
   if (msg.content === 'ping') {
     msg.reply('pong');
   }
+  
   if (msg.content === config.mute) {
     msg.channel.send(config.messageMute);
-    msg.channel.guild.members.cache.map(member => {
-      new VoiceController(Discord, msg.channel.guild, member).muteAll();
-    })
+    msg.guild.members.cache.map(member => {
+      console.log(`Mute ${member.user.username}`);
+      new VoiceController(Discord, msg.guild, member).muteAll();
+    });
   }
   if (msg.content === config.unmute) {
     msg.channel.send(config.messageUnmute);
-    msg.channel.guild.members.cache.map(member => {
-      new VoiceController(Discord, msg.channel.guild, member).unmuteAll();
-    })
+    msg.guild.members.cache.map(member => {
+      console.log(`Unmute ${member.user.username}`);
+      new VoiceController(Discord, msg.guild, member).unmuteAll();
+    });
   }
-});
+})
 
 client.login(config.token);

@@ -1,7 +1,7 @@
 module.exports = {
     "token": "",
-    "mute": "cala boca",
-    "unmute": "diz ai",
+    "mute": "mute",
+    "unmute": "voto",
     "messageMute": "Shiiiiiiii!!!",
     "messageUnmute": "Hora de votar :3"
 }
